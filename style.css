@@ -12,33 +12,103 @@ h1 {
     font-size: 130px;
 }
 
-.red{
+.red1{
     border-radius: 100px;
     padding: 50px;
     background-color: darkred;
     border-color: silver;
     border-width: 5px;
+    cursor: pointer;
 }
-.green{
+.green1{
     border-radius: 100px;
     padding: 50px;
     background-color: darkgreen;
     border-color: silver;
     border-width: 5px;
+    cursor: pointer;
 }
-.blue{
+.blue1{
     border-radius: 100px;
     padding: 50px;
     background-color: darkblue;
     border-color: silver;
     border-width: 5px;
+    cursor: pointer;
 }
-.yellow{
+.yellow1{
     border-radius: 100px;
     padding: 50px;
     background-color: darkgoldenrod;
     border-color: silver;
     border-width: 5px;
+    cursor: pointer;
+}
+
+.red2{
+    border-radius: 100px;
+    padding: 50px;
+    background-color: darkred;
+    border-color: silver;
+    border-width: 5px;
+    cursor: pointer;
+}
+.green2{
+    border-radius: 100px;
+    padding: 50px;
+    background-color: darkgreen;
+    border-color: silver;
+    border-width: 5px;
+    cursor: pointer;
+}
+.blue2{
+    border-radius: 100px;
+    padding: 50px;
+    background-color: darkblue;
+    border-color: silver;
+    border-width: 5px;
+    cursor: pointer;
+}
+.yellow2{
+    border-radius: 100px;
+    padding: 50px;
+    background-color: darkgoldenrod;
+    border-color: silver;
+    border-width: 5px;
+    cursor: pointer;
+}
+
+.red3{
+    border-radius: 100px;
+    padding: 50px;
+    background-color: darkred;
+    border-color: silver;
+    border-width: 5px;
+    cursor: pointer;
+}
+.green3{
+    border-radius: 100px;
+    padding: 50px;
+    background-color: darkgreen;
+    border-color: silver;
+    border-width: 5px;
+    cursor: pointer;
+}
+.blue3{
+    border-radius: 100px;
+    padding: 50px;
+    background-color: darkblue;
+    border-color: silver;
+    border-width: 5px;
+    cursor: pointer;
+}
+.yellow3{
+    border-radius: 100px;
+    padding: 50px;
+    background-color: darkgoldenrod;
+    border-color: silver;
+    border-width: 5px;
+    cursor: pointer;
 }
 
 .monitor{
@@ -47,5 +117,5 @@ h1 {
     margin-top: 90px;
     margin-right: 60px;
     margin-left: 60px;
-
+    cursor: pointer;
 }
