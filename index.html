@@ -4,34 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
     <title>Simon's REVENGE</title>
 </head>
 <body>
     <h1>Simon's REVENGE</h1>
-<div class="color-buttons">
-    <div class="top-row" id="top">
-        <button class="red1"></button>  
-        <button class="green1"></button>
-        <button class="blue1"></button>
-        <button class="yellow1"></button>
+    <div id="start-page">
+        <h3>Click the start button below if you think you have what it takes to beat Simon!</h3>
+        <button id="startButton">START</button>
+    </div>
+
+    <div class="color-buttons" id="game-page">
+        <div class="top-row" id="top">
+            <button class="red1"></button>  
+            <button class="green1"></button>
+            <button class="blue1"></button>
+            <button class="yellow1"></button>
+        </div> 
+        <div class="mid-row" id="middle">  
+            <button class="red2"></button>  
+            <button class="green2"></button>
+            <button class="blue2"></button>
+            <button class="yellow2"></button>
+        </div> 
+        <div class="bottom-row" id="bottom">  
+            <button class="red3"></button>  
+            <button class="green3"></button>
+            <button class="blue3"></button>
+            <button class="yellow3"></button>
+        </div> 
     </div> 
-    <div class="mid-row" id="middle">  
-        <button class="red2"></button>  
-        <button class="green2"></button>
-        <button class="blue2"></button>
-        <button class="yellow2"></button>
-    </div> 
-    <div class="bottom-row" id="bottom">  
-        <button class="red3"></button>  
-        <button class="green3"></button>
-        <button class="blue3"></button>
-        <button class="yellow3"></button>
-    </div> 
-</div> 
-<div id="span-wrap">
-<span class="monitor level" id="level">LEVEL: 0</span> 
-<span class="monitor points" id="points">POINTS: 0</span>     
-</div>  
+    <div id="span-wrap">
+        <span class="monitor level" id="level">LEVEL: 0</span> 
+        <span class="monitor points" id="points">POINTS: 0</span>   
+    </div>  
+    <script src="app.js" defer></script>
 </body>
 </html>
+    

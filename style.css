@@ -119,3 +119,7 @@ h1 {
     margin-left: 60px;
     cursor: pointer;
 }
+
+#game-page {
+    display: none;
+}

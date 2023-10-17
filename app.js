@@ -21,28 +21,42 @@ let compOrder = []
 let playerOrder = []
 let gameWin = false
 let currentLevel = 1
+let intervalID = null
+let counter = 0
 
 startButton.addEventListener('click', () => {
+    document.getElementById('start-page').style.display = 'none';
+    document.getElementById('game-page').style.display = 'block';
     if (compTurn == true || gameWin == true) {
-        playGame()
+       intervalID = setInterval(compChooseButtons, 1000)
     }
 })
 
-function playGame() {
-    playerTurn = false
-
-    if (compTurn == true){
-        intervalID = setInterval(compChooseButtons, 1000)
-        compOrder.push(compChooseButtons)
+const compChooseButtons = () => {
+    compTurn = true
+    const buttons = [flashRedOne, flashGreenOne, flashBlueOne, flashYellowOne,
+        flashRedTwo, flashGreenTwo, flashBlueTwo, flashYellowTwo,
+        flashRedThree, flashGreenThree, flashBlueThree, flashYellowThree]
+    const flashedButton = buttons[Math.floor(Math.random(2) * buttons.length)]
+    flashedButton()
+    compOrder.push(flashedButton)
+    counter++
+    if (counter === 5) {
+        clearInterval(intervalID)
         playerTurn = true
         compTurn = false
     }
-    }
+}
+console.log(compChooseButtons)
+console.log(compOrder)
+console.log(playerOrder)
+
 function playerClick() {
+    playerTurn = true
     for (let i = 0; i < playerOrder.length; i++) {
-        if (compOrder[i] !== playerOrder[i]) {
+        if (playerOrder[i] !== compOrder[i]) {
             alert("Game Over!")
-        } else (compOrder[i] === playerOrder[i]) 
+        } else (playerOrder[i] === compOrder[i]) 
             currentLevel++
             playerTurn = false
             compTurn = true
@@ -123,59 +137,61 @@ function flashYellowThree() {
     }
 }
 
-const compChooseButtons = () => {
-    const buttons = [flashRedOne, flashGreenOne, flashBlueOne, flashYellowOne,
-    flashRedTwo, flashGreenTwo, flashBlueTwo, flashYellowTwo,
-    flashRedThree, flashGreenThree, flashBlueThree, flashYellowThree]
-    buttons[Math.floor(Math.random() * buttons.length)]()
-
-}
-// setInterval(compChooseButtons, 1000)
-
-
 redButtonOne.addEventListener('click', () => {
     flashRedOne()
+    playerOrder.push(flashRedOne)
 })
 
 greenButtonOne.addEventListener('click', () => {
     flashGreenOne()
+    playerOrder.push(flashGreenOne)
 })
 
 blueButtonOne.addEventListener('click', () => {
     flashBlueOne()
+    playerOrder.push(flashBlueOne)
 })
 
 yellowButtonOne.addEventListener('click', () => {
     flashYellowOne()
+    playerOrder.push(flashYellowOne)
 })
 
 redButtonTwo.addEventListener('click', () => {
     flashRedTwo()
+    playerOrder.push(flashRedTwo)
 })
 
 greenButtonTwo.addEventListener('click', () => {
     flashGreenTwo()
+    playerOrder.push(flashGreenTwo)
 })
 
 blueButtonTwo.addEventListener('click', () => {
     flashBlueTwo()
+    playerOrder.push(flashBlueTwo)
 })
 
 yellowButtonTwo.addEventListener('click', () => {
     flashYellowTwo()
+    playerOrder.push(flashYellowTwo)
 })
 redButtonThree.addEventListener('click', () => {
     flashRedThree()
+    playerOrder.push(flashRedThree)
 })
 
 greenButtonThree.addEventListener('click', () => {
     flashGreenThree()
+    playerOrder.push(flashGreenThree)
 })
 
 blueButtonThree.addEventListener('click', () => {
     flashBlueThree()
+    playerOrder.push(flashBlueThree)
 })
 
 yellowButtonThree.addEventListener('click', () => {
     flashYellowThree()
+    playerOrder.push(flashYellowThree)
 })
