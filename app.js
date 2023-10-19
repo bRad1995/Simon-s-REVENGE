@@ -19,15 +19,16 @@ let playerTurn = false
 let compTurn = true
 let compOrder = []
 let playerOrder = []
-let gameWin = false
 let currentLevel = 1
+let points = 0
 let intervalID = null
 let counter = 0
+let playerCounter = 0
 
 startButton.addEventListener('click', () => {
     document.getElementById('start-page').style.display = 'none';
     document.getElementById('game-page').style.display = 'block';
-    if (compTurn == true || gameWin == true) {
+    if (compTurn == true) {
        intervalID = setInterval(compChooseButtons, 1000)
     }
 })
@@ -37,8 +38,9 @@ const compChooseButtons = () => {
     const buttons = [flashRedOne, flashGreenOne, flashBlueOne, flashYellowOne,
         flashRedTwo, flashGreenTwo, flashBlueTwo, flashYellowTwo,
         flashRedThree, flashGreenThree, flashBlueThree, flashYellowThree]
-    const flashedButton = buttons[Math.floor(Math.random(2) * buttons.length)]
+    const flashedButton = buttons[Math.floor(Math.random() * buttons.length)]
     flashedButton()
+    console.log(flashedButton)
     compOrder.push(flashedButton)
     counter++
     if (counter === 5) {
@@ -47,21 +49,54 @@ const compChooseButtons = () => {
         compTurn = false
     }
 }
-console.log(compChooseButtons)
-console.log(compOrder)
-console.log(playerOrder)
+// console.log(compChooseButtons)
+// console.log(compOrder)
+// console.log(playerOrder)
 
-function playerClick() {
-    playerTurn = true
-    for (let i = 0; i < playerOrder.length; i++) {
-        if (playerOrder[i] !== compOrder[i]) {
-            alert("Game Over!")
-        } else (playerOrder[i] === compOrder[i]) 
-            currentLevel++
-            playerTurn = false
-            compTurn = true
+function fillPlayerOrder() {
+    console.log("fillPlayerOrder")
+    console.log(playerCounter)
+    if (playerCounter === 5) {
+        clearInterval(intervalID)
+        playerCheck()
     }
 }
+
+// console.log(fillPlayerOrder)
+
+function playerCheck() {
+    for (let i = 0; i < playerOrder.length; i++) {
+        console.log(playerOrder[i], compOrder[i])
+        if (playerOrder[i] !== compOrder[i]) {
+            alert("Game Over!")
+            return
+        } else if (playerOrder[i] === compOrder[i]) {
+            const morePoints = document.querySelector('#points')
+            points++
+            morePoints.innerHTML = `POINTS: ${points}`
+            playerTurn = false
+            compTurn = true
+        }
+    }
+    const newLevel = document.querySelector('#level')
+    currentLevel++
+    newLevel.innerHTML = `LEVEL: ${currentLevel}`
+    counter = 0
+    playerCounter = 0
+    compOrder = []
+    playerOrder = []
+        
+    if (currentLevel === 3 && points >= 10) {
+        alert("You Beat SIMON!!!")
+        return
+        // clearInterval(points && currentLevel)
+    }
+
+    if (playerTurn === false && compTurn === true) {
+        intervalID = setInterval(compChooseButtons, 1000)
+    }
+}
+// console.log(playerCheck)
 
 function flashRedOne() {
     if (playerTurn === true || compTurn === true) {
@@ -140,58 +175,83 @@ function flashYellowThree() {
 redButtonOne.addEventListener('click', () => {
     flashRedOne()
     playerOrder.push(flashRedOne)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 greenButtonOne.addEventListener('click', () => {
     flashGreenOne()
     playerOrder.push(flashGreenOne)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 blueButtonOne.addEventListener('click', () => {
     flashBlueOne()
     playerOrder.push(flashBlueOne)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 yellowButtonOne.addEventListener('click', () => {
     flashYellowOne()
     playerOrder.push(flashYellowOne)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 redButtonTwo.addEventListener('click', () => {
     flashRedTwo()
     playerOrder.push(flashRedTwo)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 greenButtonTwo.addEventListener('click', () => {
     flashGreenTwo()
     playerOrder.push(flashGreenTwo)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 blueButtonTwo.addEventListener('click', () => {
     flashBlueTwo()
     playerOrder.push(flashBlueTwo)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 yellowButtonTwo.addEventListener('click', () => {
     flashYellowTwo()
     playerOrder.push(flashYellowTwo)
+    playerCounter++
+    fillPlayerOrder()
 })
+
 redButtonThree.addEventListener('click', () => {
     flashRedThree()
     playerOrder.push(flashRedThree)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 greenButtonThree.addEventListener('click', () => {
     flashGreenThree()
     playerOrder.push(flashGreenThree)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 blueButtonThree.addEventListener('click', () => {
     flashBlueThree()
     playerOrder.push(flashBlueThree)
+    playerCounter++
+    fillPlayerOrder()
 })
 
 yellowButtonThree.addEventListener('click', () => {
     flashYellowThree()
     playerOrder.push(flashYellowThree)
+    playerCounter++
+    fillPlayerOrder()
 })
