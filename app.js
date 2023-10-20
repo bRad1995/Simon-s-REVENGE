@@ -40,7 +40,6 @@ const compChooseButtons = () => {
         flashRedThree, flashGreenThree, flashBlueThree, flashYellowThree]
     const flashedButton = buttons[Math.floor(Math.random() * buttons.length)]
     flashedButton()
-    console.log(flashedButton)
     compOrder.push(flashedButton)
     counter++
     if (counter === 5) {
@@ -49,9 +48,6 @@ const compChooseButtons = () => {
         compTurn = false
     }
 }
-// console.log(compChooseButtons)
-// console.log(compOrder)
-// console.log(playerOrder)
 
 function fillPlayerOrder() {
     console.log("fillPlayerOrder")
@@ -62,15 +58,34 @@ function fillPlayerOrder() {
     }
 }
 
-// console.log(fillPlayerOrder)
-
 function playerCheck() {
     for (let i = 0; i < playerOrder.length; i++) {
         console.log(playerOrder[i], compOrder[i])
+
         if (playerOrder[i] !== compOrder[i]) {
-            alert("Game Over!")
+            const gameAlert = document.querySelector('#gameHeading')
+            gameAlert.innerHTML = `GAME OVER!`
+            playerTurn = false
+            compTurn = true
+            compOrder = []
+            playerOrder = []
+            currentLevel = 1
+            points = 0
+            intervalID = null
+            counter = 0
+            playerCounter = 0
+            setTimeout(() => {
+                document.getElementById('start-page').style.display = 'block'
+                document.getElementById('game-page').style.display = 'none'
+                gameAlert.innerHTML = `Simon's REVENGE`
+                const lessPoints = document.querySelector('#points')
+                lessPoints.innerHTML = `POINTS: 0`
+                const newLevel = document.querySelector('#level')
+                newLevel.innerHTML = `LEVEL: 1`
+            }, 5000)
             return
-        } else if (playerOrder[i] === compOrder[i]) {
+        } 
+        else if (playerOrder[i] === compOrder[i]) {
             const morePoints = document.querySelector('#points')
             points++
             morePoints.innerHTML = `POINTS: ${points}`
@@ -86,93 +101,133 @@ function playerCheck() {
     compOrder = []
     playerOrder = []
         
-    if (currentLevel === 3 && points >= 10) {
-        alert("You Beat SIMON!!!")
+    if (currentLevel >= 3 && points >= 15) {
+        const gameAlert = document.querySelector('#gameHeading')
+        gameAlert.innerHTML = `YOU WIN!`
+        playerTurn = false
+        compTurn = true
+        compOrder = []
+        playerOrder = []
+        currentLevel = 1
+        points = 0
+        intervalID = null
+        counter = 0
+        playerCounter = 0
+        setTimeout(() => {
+            document.getElementById('start-page').style.display = 'block'
+            document.getElementById('game-page').style.display = 'none'
+            gameAlert.innerHTML = `Simon's REVENGE`
+                const lessPoints = document.querySelector('#points')
+                lessPoints.innerHTML = `POINTS: 0`
+                const newLevel = document.querySelector('#level')
+                newLevel.innerHTML = `LEVEL: 1`
+        }, 5000)
         return
-        // clearInterval(points && currentLevel)
     }
 
     if (playerTurn === false && compTurn === true) {
         intervalID = setInterval(compChooseButtons, 1000)
     }
 }
-// console.log(playerCheck)
 
 function flashRedOne() {
     if (playerTurn === true || compTurn === true) {
         redButtonOne.style.backgroundColor = "orangered"
         setTimeout(() => redButtonOne.style.backgroundColor = "darkred", 500)
-
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashGreenOne() {
     if (playerTurn === true || compTurn === true) {
         greenButtonOne.style.backgroundColor = "chartreuse"
         setTimeout(() => greenButtonOne.style.backgroundColor = "darkgreen", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play() 
     }
 }
 function flashBlueOne() {
     if (playerTurn === true || compTurn === true) {
         blueButtonOne.style.backgroundColor = "aqua"
         setTimeout(() => blueButtonOne.style.backgroundColor = "darkblue", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashYellowOne() {
     if (playerTurn === true || compTurn === true) {
         yellowButtonOne.style.backgroundColor = "yellow"
         setTimeout(() => yellowButtonOne.style.backgroundColor = "darkgoldenrod", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashRedTwo() {
     if (playerTurn === true || compTurn === true) {
         redButtonTwo.style.backgroundColor = "orangered"
         setTimeout(() => redButtonTwo.style.backgroundColor = "darkred", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashGreenTwo() {
     if (playerTurn === true || compTurn === true) {
         greenButtonTwo.style.backgroundColor = "chartreuse"
         setTimeout(() => greenButtonTwo.style.backgroundColor = "darkgreen", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashBlueTwo() {
     if (playerTurn === true || compTurn === true) {
         blueButtonTwo.style.backgroundColor = "aqua"
         setTimeout(() => blueButtonTwo.style.backgroundColor = "darkblue", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashYellowTwo() {
     if (playerTurn === true || compTurn === true) {
         yellowButtonTwo.style.backgroundColor = "yellow"
         setTimeout(() => yellowButtonTwo.style.backgroundColor = "darkgoldenrod", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashRedThree() {
     if (playerTurn === true || compTurn === true) {
         redButtonThree.style.backgroundColor = "orangered"
         setTimeout(() => redButtonThree.style.backgroundColor = "darkred", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashGreenThree() {
     if (playerTurn === true || compTurn === true) {
         greenButtonThree.style.backgroundColor = "chartreuse"
         setTimeout(() => greenButtonThree.style.backgroundColor = "darkgreen", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashBlueThree() {
     if (playerTurn === true || compTurn === true) {
         blueButtonThree.style.backgroundColor = "aqua"
         setTimeout(() => blueButtonThree.style.backgroundColor = "darkblue", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 function flashYellowThree() {
     if (playerTurn === true || compTurn === true) {
         yellowButtonThree.style.backgroundColor = "yellow"
         setTimeout(() => yellowButtonThree.style.backgroundColor = "darkgoldenrod", 500)
+        const sound = document.getElementById('buttonSound')
+        sound.play()
     }
 }
 
-redButtonOne.addEventListener('click', () => {
+redButtonOne.addEventListener('click', () => { 
     flashRedOne()
     playerOrder.push(flashRedOne)
     playerCounter++
