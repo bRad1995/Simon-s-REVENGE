@@ -1,10 +1,33 @@
 body{
+    background-color: black;
     text-align: center;
+    font-family: 'Pixelify Sans';
+    object-fit: fill;
 }
+
 h1 {
-    font-size: 80px;
+    font-size: 100px;
+    color: white;
     text-align: center;
     margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 25px;
+    color: yellow;
+    margin-top: 100px;
+}
+
+#startButton {
+    font-family: 'Pixelify Sans';
+    font-size: 60px;
+    text-align: center;
+    margin-top: 90px;
+    margin-bottom: 100px;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: silver;
+    border-style: solid;
 }
 
 .color-buttons {
@@ -122,4 +145,12 @@ h1 {
 
 #game-page {
     display: none;
+}
+
+#level {
+    color: white
+}
+
+#points {
+    color: white;
 }
