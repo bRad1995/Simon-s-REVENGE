@@ -25,8 +25,7 @@ CSS
 
 Link:
 
-https://brad1995.github.io/Simon-s-REVENGE/
-
+(https://brad1995.github.io/Unit1-Project-Simon-/)
 
 How to Play:
 
