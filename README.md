@@ -1,6 +1,6 @@
 Simon's REVENGE
 
-Simon's Revenge is a humble sequel to the original "Simom" game relased in 1978. Like the original, this is a short term-memory game, with the only difference
+Simon's Revenge is a humble sequel to the original "Simon" game relased in 1978. Like the original, this is a short term-memory game, with the only difference
 being the addition of more buttons; the original only having 4 whereas, this version has 12.
 
 Simon was originally released in 1978 by the Milton Bradley Company which was then aquired by Hasbro in 1980. Since Hasbro's purchase; many variations of the game have been produced over the decades but, the princple game play has remained the same. 
